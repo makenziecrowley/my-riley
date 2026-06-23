@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero {
+    text-align: center;
+    padding: 90px 24px 30px;
+  }
+  .hero .eyebrow { display: inline-block; }
+  .hero h1 {
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    font-style: italic;
+    color: var(--paper);
+  }
+  .hero p {
+    color: var(--paper-dim);
+    max-width: 480px;
+    margin: 18px auto 0;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+
+  .box {
+    max-width: 760px;
+    margin: 50px auto 0;
+    padding: 0 24px 100px;
+  }
+
+  .envelopes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 600px) {
+    .envelopes { grid-template-columns: 1fr; }
+  }
+
+  .envelope {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 4px;
+    padding: 26px 22px 22px;
+    min-height: 138px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .envelope:hover, .envelope:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 40px rgba(0,0,0,0.32);
+  }
+  .envelope::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 64px solid rgba(43,33,56,0.07);
+  }
+  .envelope .label-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rose);
+    position: relative;
+    z-index: 1;
+  }
+  .envelope h2 {
+    font-size: 1.32rem;
+    font-style: italic;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .envelope .seal {
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--plum-deep);
+    position: relative;
+    z-index: 1;
+  }
+
+  .e1 .seal { background: var(--rose); color: var(--paper); }
+  .e2 .seal { background: var(--sage); color: var(--plum-deep); }
+
+  footer.sign { margin-top: 10px; }
+
+  .counter-wrap {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .counter-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 2.6rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .counter-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper-dim);
+    margin-top: 4px;
+  }
+
+  .currently {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 28px 26px;
+    margin: 46px 0;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+  }
+  .currently h2 {
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .currently ul {
+    margin: 0;
+    padding-left: 20px;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .envelope.locked {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+  .envelope.locked .seal { background: var(--ink-soft) !important; color: var(--paper-dim) !important; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="eyebrow">a small box, kept for you</span>
+    <h1>Open whenever, Riley.</h1>
+    <p>You don't have to pick the right one. There isn't a right one. Just open whatever sounds good right now &mdash; I'll be here either way.</p>
+  </div>
+
+  <div class="counter-wrap">
+    <div class="counter-num" id="dayCount">0</div>
+    <div class="counter-label">days of us, and counting</div>
+  </div>
+
+  <div class="box">
+
+    <div class="currently">
+      <h2>Currently</h2>
+      <ul>
+        <li>Playing: [game/show you're both into right now]</li>
+        <li>Watching: [show/movie]</li>
+        <li>Listening to: [song/artist on repeat]</li>
+        <li>Looking forward to: [next plan together]</li>
+      </ul>
+    </div>
+
+    <div class="envelopes">
+
+      <a class="envelope e1" href="love.html">
+        <span class="label-eyebrow">Open whenever you want</span>
+        <h2>The love letter</h2>
+        <span class="seal">&hearts;</span>
+      </a>
+
+      <a class="envelope" href="support.html">
+        <span class="label-eyebrow">Open when it's a lot</span>
+        <h2>For when you're overwhelmed</h2>
+        <span class="seal">&#9737;</span>
+      </a>
+
+      <a class="envelope e2" href="jokes.html">
+        <span class="label-eyebrow">Open for a laugh</span>
+        <h2>Jokes &amp; our trivia</h2>
+        <span class="seal">&#9742;</span>
+      </a>
+
+      <a class="envelope" href="games.html">
+        <span class="label-eyebrow">Open to play</span>
+        <h2>A little game</h2>
+        <span class="seal">&#9824;</span>
+      </a>
+
+      <a class="envelope e2" href="ourgames.html">
+        <span class="label-eyebrow">Open to plan game night</span>
+        <h2>Our games</h2>
+        <span class="seal">&#9989;</span>
+      </a>
+
+      <a class="envelope e1" href="photos.html">
+        <span class="label-eyebrow">Open to remember</span>
+        <h2>Us, so far</h2>
+        <span class="seal">&#9728;</span>
+      </a>
+
+      <a class="envelope" href="timeline.html">
+        <span class="label-eyebrow">Open to look back</span>
+        <h2>Our timeline</h2>
+        <span class="seal">&#8734;</span>
+      </a>
+
+      <a class="envelope e2" href="reasons.html">
+        <span class="label-eyebrow">Open one at a time</span>
+        <h2>Reasons I love you</h2>
+        <span class="seal">&#9825;</span>
+      </a>
+
+      <a class="envelope e1" href="bucketlist.html">
+        <span class="label-eyebrow">Open to dream a little</span>
+        <h2>Someday, together</h2>
+        <span class="seal">&#10024;</span>
+      </a>
+
+      <a class="envelope" href="playlist.html">
+        <span class="label-eyebrow">Open to listen</span>
+        <h2>Our playlist</h2>
+        <span class="seal">&#9834;</span>
+      </a>
+
+      <a class="envelope e2" href="thisorthat.html">
+        <span class="label-eyebrow">Open to see if I'm right</span>
+        <h2>This or that</h2>
+        <span class="seal">?</span>
+      </a>
+
+      <a class="envelope e1" href="comfortjar.html">
+        <span class="label-eyebrow">Open any time you need a pull</span>
+        <h2>Comfort jar</h2>
+        <span class="seal">&#9899;</span>
+      </a>
+
+      <a class="envelope locked" href="secret.html" id="secretEnvelope" style="grid-column: 1 / -1;">
+        <span class="label-eyebrow" id="secretLabel">Locked &mdash; open everything else first</span>
+        <h2 id="secretTitle">??? <span id="secretProgress" style="font-style: normal; font-family: 'Karla', sans-serif; font-size: 0.85rem; color: var(--ink-soft);"></span></h2>
+        <span class="seal">&#128274;</span>
+      </a>
+
+    </div>
+
+    <footer class="sign">made by Makenzie, for you<br>I love you, sweet boy</footer>
+  </div>
+
+<script>
+  // Psst, Makenzie: change this to the real date you two got together (YYYY-MM-DD).
+  var startDate = new Date('2024-01-01');
+  var today = new Date();
+  var diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  document.getElementById('dayCount').textContent = diffDays >= 0 ? diffDays : 0;
+
+  // Secret page unlock check
+  var requiredPages = ['love','support','jokes','games','ourgames','photos','timeline','reasons','bucketlist','playlist','thisorthat','comfortjar'];
+  var visited = JSON.parse(localStorage.getItem('rileyVisited') || '[]');
+  var visitedCount = requiredPages.filter(function(p){ return visited.indexOf(p) !== -1; }).length;
+  var allDone = visitedCount === requiredPages.length;
+
+  var secretEnvelope = document.getElementById('secretEnvelope');
+  var secretLabel = document.getElementById('secretLabel');
+  var secretProgress = document.getElementById('secretProgress');
+
+  if (allDone) {
+    secretEnvelope.classList.remove('locked');
+    secretLabel.textContent = "Open this one last";
+    document.getElementById('secretTitle').innerHTML = "One more thing";
+  } else {
+    secretEnvelope.addEventListener('click', function(e){ e.preventDefault(); });
+    secretProgress.textContent = '(' + visitedCount + ' / ' + requiredPages.length + ' opened)';
+  }
+</script>
+</body>
+</html>

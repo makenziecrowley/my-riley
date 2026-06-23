@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; someday list</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .list { display: flex; flex-direction: column; gap: 14px; }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    cursor: pointer;
+  }
+  .item input {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--sage);
+    cursor: pointer;
+  }
+  .item.done span { text-decoration: line-through; opacity: 0.5; }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    opacity: 0.65;
+    border-top: 1px solid rgba(246,238,224,0.15);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open to dream a little</span>
+  <h1 class="page-title">Someday, together</h1>
+  <p class="page-sub">Things I want to do with you. Check one off when we actually do it &mdash; it'll remember, right here on this device.</p>
+
+  <div class="card">
+    <div class="list" id="list"></div>
+  </div>
+
+  <p class="edit-note">Psst, Makenzie &mdash; edit the "items" list in the script below with your real bucket list. Add as many as you want; checking boxes saves automatically in the browser.</p>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+
+<script>
+  // Psst, Makenzie: rewrite these in your own words.
+  const items = [
+    "[a trip we want to take]",
+    "[something we want to try together]",
+    "[a place we want to live, someday]",
+    "[a tradition we want to start]",
+    "[something silly and small we keep saying we'll do]",
+    "[a goal for us as a couple]"
+  ];
+
+  const stored = JSON.parse(localStorage.getItem('rileyBucketList') || '{}');
+  const list = document.getElementById('list');
+
+  items.forEach((text, idx) => {
+    const row = document.createElement('label');
+    row.className = 'item' + (stored[idx] ? ' done' : '');
+    row.innerHTML = `<input type="checkbox" ${stored[idx] ? 'checked' : ''}><span>${text}</span>`;
+    row.querySelector('input').addEventListener('change', (e) => {
+      const data = JSON.parse(localStorage.getItem('rileyBucketList') || '{}');
+      data[idx] = e.target.checked;
+      localStorage.setItem('rileyBucketList', JSON.stringify(data));
+      row.classList.toggle('done', e.target.checked);
+    });
+    list.appendChild(row);
+  });
+
+  (function(){
+    var key='rileyVisited';
+    var visited = JSON.parse(localStorage.getItem(key) || '[]');
+    var page = 'bucketlist';
+    if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+  })();
+</script>
+</body>
+</html>
