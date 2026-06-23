@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; for when you're overwhelmed</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .reminders {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .reminder {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .reminder .mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--rose);
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .button-row {
+    margin-top: 36px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open when it's a lot</span>
+  <h1 class="page-title">Breathe for a second</h1>
+  <p class="page-sub">If you opened this one, the family stuff is probably weighing on you again. That's okay. Here's what's true, even when it doesn't feel true.</p>
+
+  <div class="card">
+    <div class="reminders">
+      <div class="reminder"><span class="mark">&mdash;</span><span>You don't have to fix your family today. Today you just have to get through today.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>Feeling overwhelmed isn't a sign you're failing them, or me, or anyone. It's a sign you've been carrying too much for too long without a break.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>You're allowed to put something down. Not everything has to happen right now.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>I'm proud of you, even on the days that feel like you didn't do enough. Especially those days.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>This feeling is temporary, even when it's loud. It will loosen its grip.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>You can call me. Not just text &mdash; actually call. I'll pick up. I'll even let you eat croutons straight out of the bag while you talk, no judgment.</span></div>
+    </div>
+
+    <div class="button-row">
+      <a class="btn" href="jokes.html">go laugh for a minute &rarr;</a>
+      <a class="btn btn-ghost" href="love.html" style="color:var(--ink); border-color: rgba(43,33,56,0.25);">read the letter again</a>
+    </div>
+  </div>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'support';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>

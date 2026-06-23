@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; the love letter</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .letter {
+    font-family: 'Fraunces', serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .letter p { margin: 0 0 20px; }
+  .letter .sign-off {
+    font-style: italic;
+    margin-top: 30px;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    opacity: 0.65;
+    border-top: 1px solid rgba(246,238,224,0.15);
+    padding-top: 18px;
+  }
+  .analogy-box {
+    margin-top: 20px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 26px 28px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+  }
+  .game-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+  .analogy-list {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin: 0;
+    padding-left: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open whenever you want</span>
+  <h1 class="page-title">For you</h1>
+
+  <div class="card">
+    <div class="letter">
+      <p>Riley,</p>
+      <p>I made you this whole strange little website instead of just texting you "I love you," because I wanted you to have something you could come back to &mdash; on a good day or a bad one, whenever you need it.</p>
+      <p>I think about us meeting at school and somehow ending up here, with a whole life half-built between us. And I think about San Diego a lot &mdash; not the surfing or Disneyland, even though those were great. What I keep coming back to is just waking up next to you every one of those mornings, taking it slow, eating breakfast and talking about nothing important. That's the part that felt like a preview of our actual life together. I want a thousand more mornings exactly like that.</p>
+      <p>I know things with your family have felt heavy lately. I want you to know I see how hard you've been holding it together, and you don't have to perform okay-ness for me. You can be tired here. You can be a mess here. I'm not going anywhere, sweet boy.</p>
+      <p>You have this way of accepting everything &mdash; I could write off a food or a place or an idea after one try, and you'll just try it again, and again, with this genuine openness I don't think I've seen in anyone else. You forgive easily. You're just built different, the best kind of different. And don't even get me started on your analogies &mdash; they make no sense half the time and somehow that's exactly what makes them perfect, because it's just you, figuring out how to say a feeling out loud in the only way that makes sense to you.</p>
+      <p>So this is just me, saying it plainly: I love you. Not the easy parts only &mdash; all of it. The overwhelmed parts too. Always, baby.</p>
+      <p class="sign-off">Yours,<br>Your girl</p>
+    </div>
+
+    <div class="analogy-box">
+      <span class="game-tag" style="display:block; margin-bottom: 8px;">A small hall of fame</span>
+      <h3 style="font-family:'Fraunces',serif; font-style: italic; font-size: 1.1rem; margin-bottom: 10px;">Riley's analogies, ranked by how little sense they make</h3>
+      <ul class="analogy-list">
+        <li>"[drop your favorite one here]"</li>
+        <li>"[and another one]"</li>
+        <li>"[the one that still makes you laugh]"</li>
+      </ul>
+      <p style="font-size: 0.85rem; color: var(--ink-soft); margin-top: 14px;">None of them have to make sense. That's the whole point.</p>
+    </div>
+  </div>
+
+  <p class="edit-note">Psst, Makenzie &mdash; just drop your three favorite Riley analogies into the &lt;li&gt; lines above, replacing the bracketed placeholders. The letter itself is ready to send as-is, but feel free to keep adding to it.</p>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'love';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>
