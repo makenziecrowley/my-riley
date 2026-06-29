@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; for when you're overwhelmed</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .reminders {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .reminder {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .reminder .mark {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--rose);
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .button-row {
+    margin-top: 36px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open when it's a lot</span>
+  <h1 class="page-title">take a second!</h1>
+  <p class="page-sub">try to ignore everything rushing through that pretty little head of yours. take a second to read through these, lovey.</p>
+
+  <div class="card">
+    <div class="reminders">
+      <div class="reminder"><span class="mark">&mdash;</span><span>you don't have to fix it today. you just have to make it to tomorrow.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>feeling overwhelmed isn't a sign you're failing them, or me, or anyone. it's a sign you've been carrying too much for too long and it's okay to feel overwhelmed.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>you're allowed to put something down. not everything has to happen right now.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>i'm SO proud of you, even on the days that feel like you didn't do enough. especially those days.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>this feeling is temporary, even when it's loud. you will make it through like you always do. you're so strong.</span></div>
+      <div class="reminder"><span class="mark">&mdash;</span><span>always call me! i'll always pick up. i'll even let you eat croutons straight out of the bag while you talk. i just want you to know that you always have someone in your corner who you can talk to.</span></div>
+    </div>
+
+    <div class="button-row">
+      <a class="btn" href="jokes.html">go laugh for a minute &rarr;</a>
+      <a class="btn btn-ghost" href="love.html">read the letter again</a>
+    </div>
+  </div>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'support';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>

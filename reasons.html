@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; reasons</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .reveal-box {
+    text-align: center;
+  }
+  .reason-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .counter {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 14px;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open one at a time</span>
+  <h1 class="page-title">reasons that i love you</h1>
+  <p class="page-sub">there are 10 here, but so much more in my heart.</p>
+
+  <div class="card reveal-box">
+    <div class="counter" id="counter">Reason 0 of 0</div>
+    <p class="reason-text" id="reasonText">Tap the button whenever you're ready.</p>
+    <button class="btn" id="nextBtn">show me a reason</button>
+  </div>
+
+  <p class="edit-note">Psst, Makenzie &mdash; replace every line inside the "reasons" list in the script below with your own. The more specific and weird and true, the better. Aim for way more than you think you need &mdash; that's the whole point of this page.</p>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+
+<script>
+  // Psst, Makenzie: rewrite every line below in your own words.
+  const reasons = [
+    "your analogies. they can sometimes be so silly, but honestly, they all work so well. i always love when i can tell one is coming, and i get to prepare myself to have to hold back my laughter, but it always fizzles out when i realize how true your analogy really is.",
+    "you, my sweet boy, are the kindest person that i have ever met. you drop everything in seconds for your friends, or brothers, or me. i am eternally grateful and i feel so lucky to have someone so good around me all the time. you're such a great person and friend.",
+    "those beautiful eyes and that perfect smile. i've gotta think of my kids here, and honestly, they are going to be blessed genetically if they get your genes. no baldness incoming, the most beautiful eyes and longest eyelashes, the most perfect cutie little nose, etc. only the tip of the iceberg that is your perfection.",
+    "you're going to make the best dad. first of all, you're so good with any kid you interact with. i'm consistently impressed by you. secondly, you know exactly how you want to parent already. i guarantee you most people don't know until they're in the thick of it. you're just genuinely going to be the best dad ever, riley.",
+    "i will forever be grateful for how careful you are with me and my heart. as we both know im an extremely sensitive person, and that takes a lot out of a person to support someone like that. but you do such a good job, and make me feel so loved, especially in the situations i need it the most.",
+    "i still remember how nervous you were during the dinner on the night you asked me to be your girlfriend. it is such a fond memory of mine, recalling how you ate your sandwich with a fork and knife. you're so silly and adorable, my riley.",
+    "being with you is so comfortable. i always feel at home when you're around. every situation we're in, i always feel a million times better if you're there. you make me feel so comfortable, and i appreciate you so much for that. you are my home.",
+    "i so appreciate that you always let me steal your sweatshirts. they're so much better because they're yours! but the truth behind it is, i sleep so much better with your scent. the signature riley scent that i always talk about. it is genuinely so comforting to me, and i sleep like a baby whenever i have a bit of it around me. you're so comforting to me.",
+    "when im writing this, were a year and 10 months in. i cannot be more excited for our future together. we are genuinely SO GOOD together, and i can't be more grateful for YOU being my first everything. you have made everything so special thus far and i cannot wait to see where the future takes us.",
+    "i choose you forever riley. you're my best friend, my whole world, and my everything. i don't think i could go a day without imagining your laugh or touching your hair even though you hate it or getting annoyed by you asking me to scratch your back. though it's not my favorite, i will always scratch your back, my perfect baby."
+  ];
+
+  let order = [];
+  let pointer = 0;
+
+  function shuffle() {
+    order = reasons.map((_, i) => i).sort(() => Math.random() - 0.5);
+    pointer = 0;
+  }
+
+  function updateCounter() {
+    document.getElementById('counter').textContent = `Reason ${pointer} of ${reasons.length}`;
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (pointer >= order.length) {
+      shuffle();
+      document.getElementById('reasonText').textContent = "That's all of them for now \u2014 but there's always more. Start again?";
+      updateCounter();
+      return;
+    }
+    document.getElementById('reasonText').textContent = reasons[order[pointer]];
+    pointer++;
+    updateCounter();
+  });
+
+  shuffle();
+  updateCounter();
+
+  (function(){
+    var key='rileyVisited';
+    var visited = JSON.parse(localStorage.getItem(key) || '[]');
+    var page = 'reasons';
+    if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+  })();
+</script>
+</body>
+</html>

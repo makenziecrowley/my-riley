@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; comfort jar</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .jar-box { text-align: center; }
+  .pull-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open any time you need a pull</span>
+  <h1 class="page-title">comfort jar</h1>
+  <p class="page-sub">pull a slip whenever. pull as many as you need &mdash; there's no limit.</p>
+
+  <div class="card jar-box">
+    <p class="pull-text" id="pullText">tap the jar.</p>
+    <button class="btn" id="pullBtn">pull a slip</button>
+  </div>
+
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+
+<script>
+  const slips = [
+    "im always there for you sweet boy, whenever you need me. id drop anything for you",
+    "you work so well under pressure, and I know you can get through anything. I've watched you do it",
+    "remember when we cried in each others arms multiple times? it happens. I'm here for you and you're never alone",
+    "you are so much stronger than you know. and I'm not just referencing your BEAUTIFUL biceps. you genuinely have so much strength that you aren't even aware of",
+    "if I can't hold you, I can talk to you. I can tell you stories, listen to you talk, give advice, or just sit on the phone with you so you know that you're not alone",
+    "don't chew the inside of your lip. it's bad for you sweet boy, and I know it's a comfort for you. but try your best",
+    "play some geometry dash!! that always takes your mind away from things. cause you need to be focused on not crashing into the spikes that come down from the ceiling",
+    "you can rest. you don't have to do everything all the time. you're allowed to be calm and collected and do whatever it is that YOU need to do."
+  ];
+
+  let lastPull = -1;
+  document.getElementById('pullBtn').addEventListener('click', () => {
+    let i;
+    do { i = Math.floor(Math.random() * slips.length); } while (i === lastPull && slips.length > 1);
+    lastPull = i;
+    document.getElementById('pullText').textContent = slips[i];
+  });
+
+  (function(){
+    var key='rileyVisited';
+    var visited = JSON.parse(localStorage.getItem(key) || '[]');
+    var page = 'comfortjar';
+    if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+  })();
+</script>
+</body>
+</html>

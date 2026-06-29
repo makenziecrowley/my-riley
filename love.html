@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; the love letter</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .letter {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .letter p { margin: 0 0 20px; }
+  .letter .sign-off {
+    margin-top: 30px;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open whenever you want</span>
+  <h1 class="page-title">For you</h1>
+
+  <div class="card">
+    <div class="letter">
+      <p>Riley,</p>
+      <p>I made you this whole strange little website instead of just texting you "I love you," because I wanted you to have something you could come back to &mdash; on a good day or a bad one, whenever you need it.</p>
+      <p>I think about us meeting at school and somehow ending up here, with a whole life half-built between us. And I think about San Diego a lot &mdash; not the surfing or Disneyland, even though those were great. What I keep coming back to is just waking up next to you every one of those mornings, taking it slow, eating breakfast and talking about nothing important. That's the part that felt like a preview of our actual life together. I want a thousand more mornings exactly like that.</p>
+      <p>I know things with your family have felt heavy lately. I want you to know I see how hard you've been holding it together, and you don't have to perform okay-ness for me. You can be tired here. You can be a mess here. I'm not going anywhere, sweet boy.</p>
+      <p>You have this way of accepting everything &mdash; I could write off a food or a place or an idea after one try, and you'll just try it again, and again, with this genuine openness I don't think I've seen in anyone else. You forgive easily. You're just built different, the best kind of different. And don't even get me started on your analogies &mdash; they make no sense half the time and somehow that's exactly what makes them perfect, because it's just you, figuring out how to say a feeling out loud in the only way that makes sense to you.</p>
+      <p>So this is just me, saying it plainly: I love you. Not the easy parts only &mdash; all of it. The overwhelmed parts too. Always, baby.</p>
+      <p class="sign-off">Yours,<br>Your girl</p>
+    </div>
+  </div>
+
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'love';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; jokes &amp; trivia</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .joke-box {
+    text-align: center;
+  }
+  .joke-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+  }
+  .section-title {
+    margin-top: 56px;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: var(--pink-deep);
+  }
+  .quiz-card { margin-top: 0; }
+  .quiz-q { font-family: 'Fredoka', sans-serif; font-size: 1.2rem; margin-bottom: 18px; }
+  .options { display: grid; gap: 10px; }
+  .opt-btn {
+    text-align: left;
+    background: var(--paper-dim);
+    border: 1px solid rgba(43,33,56,0.1);
+    color: var(--ink);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .opt-btn:hover { background: #E2D6BC; }
+  .opt-btn.correct { background: var(--sage); color: var(--paper); }
+  .opt-btn.wrong { background: var(--rose); color: var(--paper); }
+  .quiz-progress {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open for a laugh</span>
+  <h1 class="page-title">jokes & our trivia</h1>
+  <p class="page-sub">these jokes are terrible on purpose, i promise. and this quiz&mdash;only you should pass.</p>
+
+  <div class="card joke-box">
+    <p class="joke-text" id="jokeText">tap the button for a bad joke!</p>
+    <button class="btn" id="jokeBtn" style="margin-top:10px;">tell me a joke</button>
+  </div>
+
+  <h2 class="section-title">How well do you know us?</h2>
+  <div class="card quiz-card">
+    <div class="quiz-progress" id="quizProgress">Question 1 of 5</div>
+    <div class="quiz-q" id="quizQ"></div>
+    <div class="options" id="quizOptions"></div>
+  </div>
+
+  <p class="edit-note">Psst, Makenzie &mdash; this trivia is already personalized. Want to add more questions later? Just copy one of the question blocks in script.js and change the text.</p>
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+
+<script>
+  const jokes = [
+    "I was going to tell you a chemistry joke, but I know I wouldn't get a reaction.",
+    "You're like a fine wine. You get better every year, and you give me a headache sometimes.",
+    "Are you a parking ticket? Because you've got fine written all over you.",
+    "I'd say I love you to the moon and back, but I've never actually been to space, so I can't confirm the math.",
+    "Roses are red, violets are blue, I made you a whole website, please don't judge the CSS.",
+    "What do you call it when I think about you too much during work? A Riley-tention problem.",
+    "I'm not a photographer, but I can picture us together. Sorry, also the picture is a placeholder right now.",
+    "You must be made of copper and tellurium, because you're Cu-Te.",
+    "Sweet boy, perfect boy, baby, baby girl, lovey, love \u2014 at this point I just need a dropdown menu of nicknames for you.",
+    "Your analogies make zero sense, and somehow that's the most you thing about you. Never stop."
+  ];
+  let lastJoke = -1;
+  document.getElementById('jokeBtn').addEventListener('click', () => {
+    let i;
+    do { i = Math.floor(Math.random() * jokes.length); } while (i === lastJoke);
+    lastJoke = i;
+    document.getElementById('jokeText').textContent = jokes[i];
+  });
+
+  const quiz = [
+    {
+      q: "Where did Makenzie and Riley first meet?",
+      options: ["School", "Through friends", "Online", "A complete coincidence"],
+      correct: 0
+    },
+    {
+      q: "What's Riley's go-to comfort snack?",
+      options: ["Pretzels", "Croutons", "Goldfish", "Popcorn"],
+      correct: 1
+    },
+    {
+      q: "What's Makenzie's Minecraft username?",
+      options: ["riley6520", "kenzybuilds", "kenzerooskie", "mcgamergirl"],
+      correct: 2
+    },
+    {
+      q: "What was Makenzie's favorite part of the San Diego trip?",
+      options: ["Disneyland", "Slow mornings together before the day started", "Surfing", "The canyon hike"],
+      correct: 1
+    },
+    {
+      q: "What's the one Riley trait Makenzie says she loves most?",
+      options: ["His cooking", "How he accepts and forgives so easily", "His punctuality", "His taste in music"],
+      correct: 1
+    }
+  ];
+
+  let qIndex = 0;
+  let score = 0;
+
+  function renderQuiz() {
+    const item = quiz[qIndex];
+    document.getElementById('quizProgress').textContent = `Question ${qIndex + 1} of ${quiz.length}`;
+    document.getElementById('quizQ').textContent = item.q;
+    const optsDiv = document.getElementById('quizOptions');
+    optsDiv.innerHTML = '';
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => handleAnswer(idx, btn));
+      optsDiv.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(idx, btn) {
+    const item = quiz[qIndex];
+    const allBtns = document.querySelectorAll('.opt-btn');
+    allBtns.forEach(b => b.disabled = true);
+    if (idx === item.correct) {
+      btn.classList.add('correct');
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      allBtns[item.correct].classList.add('correct');
+    }
+    setTimeout(() => {
+      qIndex++;
+      if (qIndex < quiz.length) {
+        renderQuiz();
+      } else {
+        document.getElementById('quizProgress').textContent = 'Done!';
+        document.getElementById('quizQ').textContent = `You got ${score} out of ${quiz.length} right. ${score === quiz.length ? "Show off." : "Still mine either way."}`;
+        document.getElementById('quizOptions').innerHTML = '';
+      }
+    }, 1200);
+  }
+
+  renderQuiz();
+
+  (function(){
+    var key='rileyVisited';
+    var visited = JSON.parse(localStorage.getItem(key) || '[]');
+    var page = 'jokes';
+    if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+  })();
+</script>
+</body>
+</html>

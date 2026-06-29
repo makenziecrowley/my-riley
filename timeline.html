@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; our timeline</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .timeline {
+    position: relative;
+    margin-top: 10px;
+    padding-left: 28px;
+    border-left: 3px dashed var(--pink);
+  }
+  .t-item {
+    position: relative;
+    padding-bottom: 36px;
+  }
+  .t-item:last-child { padding-bottom: 0; }
+  .t-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--pink-deep);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .t-date {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .t-item h2 {
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .t-item p {
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.96rem;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open to remember how we got here</span>
+  <h1 class="page-title">our timeline</h1>
+  <p class="page-sub">the big stuff and the small stuff, in order.</p>
+
+  <div class="timeline">
+    <div class="t-item">
+      <span class="t-date">sophomore year</span>
+      <h2>we met at school</h2>
+      <p>way back in mrs pilla's honors chemistry class was the first time we truly got to see each other at school. i still remember looking over at your side of the room, hoping that you'd notice me the way that i noticed you.</p>
+    </div>
+    <div class="t-item">
+      <span class="t-date">february 3, 2025</span>
+      <h2>the text</h2>
+      <p>"any way that i can make it up to you i will. Kenzie, your the most beautiful girl ibe ever seen. i ask you one last time, will you go out with me?"</p>
+    </div>
+    <div class="t-item">
+      <span class="t-date">february 8, 2025</span>
+      <h2>the first kiss!</h2>
+      <p>one of the most magical nights of my life. my first kiss, my first time truly being with a boy. and i'm forever grateful that YOU'RE that boy. even though the first kiss didn't go so great, i'm glad we evened it out with the second one.</p>
+    </div>
+    <div class="t-item">
+      <span class="t-date">february 9, 2025</span>
+      <h2>the first date</h2>
+      <p>someone thought it was a great idea to do a hike in the middle of february. i ate shit. but it was the best 6+ hours of my life with you.</p>
+    </div>
+    <div class="t-item">
+      <span class="t-date">february 14, 2025</span>
+      <h2>official!</h2>
+      <p>the most perfect day ever. even though i told you not to do it on this day, i'm forever grateful you did. valentine's holds such a special place in my heart.</p>
+    </div>
+    <div class="t-item">
+      <span class="t-date">today</span>
+      <h2>this website</h2>
+      <p>i just wanted you to have something you can always come back to, and something that i can always keep updated. i love you sweet boy! (i'm going to add so much more but idk how right now)</p>
+    </div>
+  </div>
+
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'timeline';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>

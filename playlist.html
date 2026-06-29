@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; our playlist</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .track {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(43,33,56,0.08);
+  }
+  .track:last-child { border-bottom: none; padding-bottom: 0; }
+  .track-num {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--rose);
+    font-size: 1.1rem;
+    width: 26px;
+    flex-shrink: 0;
+  }
+  .track h2 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+  .track p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .edit-note {
+    margin-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    border-top: 2px dashed var(--bg-soft);
+    padding-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open to listen</span>
+  <h1 class="page-title">our playlist</h1>
+  <p class="page-sub">songs that mean something, and why.</p>
+
+  <div class="card">
+    <div class="track">
+      <span class="track-num">01</span>
+      <div>
+        <h2>Nothing &mdash; Bruno Major</h2>
+        <p>this is the first song that you sent to me. I have listened to this song for so long, and the fact that you found it and connected it with me independently meant so much to me. music is a huge connection point for us as is, but such a romantic song that carries so much meaning made it so much more special.</p>
+      </div>
+    </div>
+    <div class="track">
+      <span class="track-num">02</span>
+      <div>
+        <h2>Our House &mdash; Crosby, Stills, Nash &amp; Young</h2>
+        <p>I am wholeheartedly in love with this song, but not as much as I am with you. it just is so romantic and I cannot not think about you when it comes on. I even sometimes play it because it reminds me of us so much. our future looks like this song.</p>
+      </div>
+    </div>
+    <div class="track">
+      <span class="track-num">03</span>
+      <div>
+        <h2>Lyin' Eyes &mdash; The Eagles</h2>
+        <p>I put you onto this song at the time im writing this. it holds such a special place in my heart because you enjoyed it so much. I already liked the eagles, but knowing that you enjoy this song so much made it so much more special. you mean everything to me and whenever this song comes on and we lock eyes, that means more to me than you could ever know.</p>
+      </div>
+    </div>
+    <div class="track">
+      <span class="track-num">04</span>
+      <div>
+        <h2>Sweet Nothing &mdash; Taylor Swift</h2>
+        <p>I never really connected with this song the way I did with others of hers, but once I realized what it was about, that made it so special &mdash; because I could connect it to you. it is just truly so special to me because it reminds me so much of us. im so grateful for you sweet Riley.</p>
+      </div>
+    </div>
+    <div class="track">
+      <span class="track-num">05</span>
+      <div>
+        <h2>Still Into You &mdash; Paramore</h2>
+        <p>this song had to be added, of course. you're crazy into it right now after being in California. I had to put this song not only because you LOVE it, but also because it is so true. I am still very much in love with you even after all of this time, and I still get butterflies, and it just encapsulates how I will always be so giddy and in love when it comes to you and our relationship.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="sign">I love you, sweet boy</footer>
+</div>
+<script>
+(function(){
+  var key='rileyVisited';
+  var visited = JSON.parse(localStorage.getItem(key) || '[]');
+  var page = 'playlist';
+  if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+})();
+</script>
+</body>
+</html>
