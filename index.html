@@ -183,6 +183,12 @@
         <span class="seal">&hearts;</span>
       </a>
 
+      <a class="envelope e2" href="letters.html" style="grid-column: 1 / -1;">
+        <span class="label-eyebrow">Open every day while you're in France</span>
+        <h2>Letters from home 🌷</h2>
+        <span class="seal">&#9993;</span>
+      </a>
+
       <a class="envelope" href="support.html">
         <span class="label-eyebrow">Open when it's a lot</span>
         <h2>For when you're overwhelmed</h2>
@@ -238,7 +244,7 @@
   document.getElementById('dayCount').textContent = diffDays >= 0 ? diffDays : 0;
 
   // Secret page unlock check
-  var requiredPages = ['love','support','jokes','timeline','reasons','playlist','comfortjar'];
+  var requiredPages = ['love','support','jokes','timeline','reasons','playlist','comfortjar','letters'];
   var visited = JSON.parse(localStorage.getItem('rileyVisited') || '[]');
   var visitedCount = requiredPages.filter(function(p){ return visited.indexOf(p) !== -1; }).length;
   var allDone = visitedCount === requiredPages.length;

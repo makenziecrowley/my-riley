@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riley &mdash; letters from home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .letters { display: flex; flex-direction: column; gap: 28px; }
+
+  .letter-card {
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 30px 32px;
+    box-shadow: 0 14px 32px rgba(255,143,160,0.15);
+    border: 2px solid var(--bg-soft);
+  }
+  .letter-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .letter-day {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    color: var(--pink-deep);
+  }
+  .letter-date {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .letter-body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink);
+    white-space: pre-wrap;
+  }
+  .letter-sign {
+    margin-top: 18px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    color: var(--pink-deep);
+  }
+
+  .comments-wrap {
+    margin-top: 56px;
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: 0 14px 32px rgba(255,143,160,0.15);
+    border: 2px solid var(--bg-soft);
+  }
+  .comments-wrap h2 {
+    font-size: 1.3rem;
+    color: var(--pink-deep);
+    margin-bottom: 6px;
+  }
+  .comments-wrap p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; back to the box</a>
+  <span class="eyebrow">open every day</span>
+  <h1 class="page-title">letters from home</h1>
+  <p class="page-sub">one a day while you're in France. newest first. leave me a comment at the bottom so I know you're reading. 🌷</p>
+
+  <div class="letters" id="letters">
+
+    <!-- PASTE NEW LETTERS AT THE TOP, ABOVE THIS LINE -->
+    <!-- copy a block from the letter builder tool and paste it here -->
+
+  </div>
+
+  <div class="comments-wrap">
+    <h2>leave me a note 💬</h2>
+    <p>scroll down here to reply, react, or just let me know you read it</p>
+    <div id="disqus_thread"></div>
+  </div>
+
+  <footer class="sign">I love you, sweet boy &mdash; missing you from home</footer>
+</div>
+
+<script>
+  // --------------------------------------------------------
+  // DISQUS SETUP
+  // Replace YOUR_SHORTNAME below with your Disqus shortname.
+  // Get it at: disqus.com → Admin → Your site → Settings → Shortname
+  // --------------------------------------------------------
+  var disqus_config = function () {
+    this.page.url = 'https://makenziecrowley.github.io/my-riley/letters.html';
+    this.page.identifier = 'riley-letters';
+  };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://YOUR_SHORTNAME.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+
+  (function(){
+    var key='rileyVisited';
+    var visited = JSON.parse(localStorage.getItem(key) || '[]');
+    var page = 'letters';
+    if (visited.indexOf(page) === -1) { visited.push(page); localStorage.setItem(key, JSON.stringify(visited)); }
+  })();
+</script>
+</body>
+</html>
