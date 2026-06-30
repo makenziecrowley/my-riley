@@ -97,16 +97,14 @@
   // Replace YOUR_SHORTNAME below with your Disqus shortname.
   // Get it at: disqus.com → Admin → Your site → Settings → Shortname
   // --------------------------------------------------------
-  var disqus_config = function () {
-    this.page.url = 'https://makenziecrowley.github.io/my-riley/letters.html';
-    this.page.identifier = 'riley-letters';
-  };
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://YOUR_SHORTNAME.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
+ <div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="93bde009-0aa1-4ee9-8f2c-3958bbc0df76"
+  data-page-id="{{ PAGE_ID }}"
+  data-page-url="{{ PAGE_URL }}"
+  data-page-title="{{ PAGE_TITLE }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
   (function(){
     var key='rileyVisited';
