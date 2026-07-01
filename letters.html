@@ -85,27 +85,20 @@
   <div class="comments-wrap">
     <h2>leave me a note 💬</h2>
     <p>scroll down here to reply, react, or just let me know you read it</p>
-    <div id="disqus_thread"></div>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="YOUR_APP_ID_HERE"
+      data-page-id="riley-letters"
+      data-page-url="https://makenziecrowley.github.io/my-riley/letters.html"
+      data-page-title="Letters from home">
+    </div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
   </div>
 
   <footer class="sign">I love you, sweet boy &mdash; missing you from home</footer>
 </div>
 
 <script>
-  // --------------------------------------------------------
-  // DISQUS SETUP
-  // Replace YOUR_SHORTNAME below with your Disqus shortname.
-  // Get it at: disqus.com → Admin → Your site → Settings → Shortname
-  // --------------------------------------------------------
- <div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="93bde009-0aa1-4ee9-8f2c-3958bbc0df76"
-  data-page-id="{{ PAGE_ID }}"
-  data-page-url="{{ PAGE_URL }}"
-  data-page-title="{{ PAGE_TITLE }}"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-
   (function(){
     var key='rileyVisited';
     var visited = JSON.parse(localStorage.getItem(key) || '[]');

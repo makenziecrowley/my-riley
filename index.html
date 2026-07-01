@@ -163,6 +163,11 @@
     <div class="counter-label">days of us, and counting</div>
   </div>
 
+  <div class="counter-wrap" style="margin-top: 18px;">
+    <div class="counter-num" id="countdown" style="font-size: 1.8rem;">...</div>
+    <div class="counter-label">until you're home 🌷</div>
+  </div>
+
   <div class="box">
 
     <div class="currently">
@@ -237,11 +242,29 @@
   </div>
 
 <script>
-  // Psst, Makenzie: change this if you want the counter to start from a different milestone than "official."
   var startDate = new Date('2025-02-14');
   var today = new Date();
   var diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
   document.getElementById('dayCount').textContent = diffDays >= 0 ? diffDays : 0;
+
+  // Countdown to Riley landing July 7 at noon Eastern
+  var landingDate = new Date('2026-07-07T12:00:00');
+  function updateCountdown() {
+    var now = new Date();
+    var diff = landingDate - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').textContent = '🎉 he\'s home!';
+      return;
+    }
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var secs = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('countdown').textContent =
+      days + 'd ' + hours + 'h ' + mins + 'm ' + secs + 's';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   // Secret page unlock check
   var requiredPages = ['love','support','jokes','timeline','reasons','playlist','comfortjar','letters'];
